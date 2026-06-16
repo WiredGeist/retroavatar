@@ -4,6 +4,10 @@ An interactive, physical desktop companion powered by a Raspberry Pi, a local wo
 
 This project is a hybrid local/edge system: your Pi acts as the low-latency hardware gateway (handling real-time eye-gaze tracking, physical sensors, audio recording, and offline speech-to-text), while your PC’s GPU handles heavy multimodal reasoning and tool execution.
 
+<p align="center">
+  <img src="retroavatar.png" width="150" alt="Retro Avatar Logo">
+</p>
+
 ---
 
 ## 📺 System Capabilities
