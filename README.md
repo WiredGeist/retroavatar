@@ -130,7 +130,7 @@ SOURCE_MODEL=OLLAMA
 
 # OLLAMA CONFIGURATION (Required only if SOURCE_MODEL=OLLAMA)
 # Point OLLAMA_HOST to your local PC's local IP address on the network
-OLLAMA_HOST=http://you_ip_address:11434
+OLLAMA_HOST=http://your_ip_address:11434
 OLLAMA_MODEL=gemma4:12b
 
 # GEMINI CONFIGURATION (Required only if SOURCE_MODEL=GEMINI)
