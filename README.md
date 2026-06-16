@@ -1,6 +1,6 @@
 # 🤖 Retro Avatar: Offline-Ready Multimodal AI Companion
 
-An interactive, physical desktop companion powered by a Raspberry Pi 5 (or 4), a local workstation GPU running **Gemma 4 (26B)** via Ollama, a Seeeduino Xiao microcontroller, a camera, and an SPI color OLED display.
+An interactive, physical desktop companion powered by a Raspberry Pi 5 (or 4), a local workstation GPU running **Gemma 4 (12B)** via Ollama, a Seeeduino Xiao microcontroller, a camera, and an SPI color OLED display.
 
 This project is a hybrid local/edge system: your Pi acts as the low-latency hardware gateway (handling real-time eye-gaze tracking, physical sensors, audio recording, and offline speech-to-text), while your PC’s GPU handles heavy multimodal reasoning and tool execution.
 
@@ -70,8 +70,8 @@ To prevent PEP 668 environment errors, we install our packages inside a virtual 
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/retro-avatar.git
-cd $HOME/retro-avatar
+git clone https://github.com/yourusername/retroavatar.git
+cd $HOME/retroavatar
 
 # Create the virtual environment using global camera bindings
 python3 -m venv --system-site-packages .
@@ -90,9 +90,9 @@ pip install -r requirements.txt
 The avatar requires two local model files to run offline: **Vosk** (for Speech-to-Text) and **Piper** (for Text-to-Speech).
 
 ### 1. Download Vosk Speech-to-Text Model (40MB)
-Run these commands inside your Pi's `~/retro-avatar` directory:
+Run these commands inside your Pi's `~/retroavatar` directory:
 ```bash
-cd $HOME/retro-avatar
+cd $HOME/retroavatar
 wget https://alphacephei.com/vosk/models/vosk-model-small-en-us-0.15.zip
 unzip vosk-model-small-en-us-0.15.zip
 mv vosk-model-small-en-us-0.15 vosk-model
@@ -102,7 +102,7 @@ rm vosk-model-small-en-us-0.15.zip
 ### 2. Download OpenCV Eye-Gaze Classifier
 Download the eyeglasses-friendly Haar cascade model for eye-gaze tracking:
 ```bash
-curl -L "https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_eye_tree_eyeglasses.xml" -o $HOME/retro-avatar/haarcascade_eye_tree_eyeglasses.xml
+curl -L "https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_eye_tree_eyeglasses.xml" -o $HOME/retroavatar/haarcascade_eye_tree_eyeglasses.xml
 ```
 
 ### 3. Set Up Piper Text-to-Speech (TTS)
@@ -121,7 +121,7 @@ wget https://github.com/rhasspy/piper/releases/download/v1.0.0/en_US-amy-low.onn
 
 ## ⚙️ Configuration (`.env`)
 
-Create a configuration file called `.env` in the root of your project directory (`~/retro-avatar/.env`) to customize your hardware ports and AI backends:
+Create a configuration file called `.env` in the root of your project directory (`~/retroavatar/.env`) to customize your hardware ports and AI backends:
 
 ```ini
 # --- AI BACKEND ROUTING ---
@@ -130,8 +130,8 @@ SOURCE_MODEL=OLLAMA
 
 # OLLAMA CONFIGURATION (Required only if SOURCE_MODEL=OLLAMA)
 # Point OLLAMA_HOST to your local PC's local IP address on the network
-OLLAMA_HOST=http://192.168.1.150:11434
-OLLAMA_MODEL=gemma4:26b
+OLLAMA_HOST=http://you_ip_address:11434
+OLLAMA_MODEL=gemma4:12b
 
 # GEMINI CONFIGURATION (Required only if SOURCE_MODEL=GEMINI)
 GEMINI_API_KEY=your_google_gemini_api_key_here
@@ -173,9 +173,9 @@ To make the avatar run automatically as a background system daemon when the Pi b
    [Service]
    User=root
    # NOTE: Replace <YOUR_USERNAME> with your actual Pi username (e.g., pi, admin)
-   WorkingDirectory=/home/<YOUR_USERNAME>/retro-avatar
+   WorkingDirectory=/home/<YOUR_USERNAME>/retroavatar
    # Points directly to your virtual environment's python interpreter
-   ExecStart=/home/<YOUR_USERNAME>/retro-avatar/bin/python3 /home/<YOUR_USERNAME>/retro-avatar/the_living_avatar.py
+   ExecStart=/home/<YOUR_USERNAME>/retroavatar/bin/python3 /home/<YOUR_USERNAME>/retroavatar/the_living_avatar.py
    Restart=always
    RestartSec=5
 
