@@ -6,7 +6,7 @@ This project is a hybrid local/edge system: your Pi acts as the low-latency hard
 
 <p align="center">
   <img src="retroavatar.png" alt="Retro Avatar Logo">
-</p>
+</p> 
 
 ---
 
