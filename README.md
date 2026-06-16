@@ -1,6 +1,6 @@
 # 🤖 Retro Avatar: Offline-Ready Multimodal AI Companion
 
-An interactive, physical desktop companion powered by a Raspberry Pi 5 (or 4), a local workstation GPU running **Gemma 4 (12B)** via Ollama, a Seeeduino Xiao microcontroller, a camera, and an SPI color OLED display.
+An interactive, physical desktop companion powered by a Raspberry Pi, a local workstation GPU running **Gemma 4 (12B)** via Ollama, a Seeeduino Xiao microcontroller, a camera, and an SPI color OLED display.
 
 This project is a hybrid local/edge system: your Pi acts as the low-latency hardware gateway (handling real-time eye-gaze tracking, physical sensors, audio recording, and offline speech-to-text), while your PC’s GPU handles heavy multimodal reasoning and tool execution.
 
