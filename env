@@ -1,0 +1,20 @@
+# --- AI BACKEND ROUTING ---
+# Options: "OLLAMA" (Local Workstation GPU) or "GEMINI" (Google Cloud)
+SOURCE_MODEL=OLLAMA
+
+# OLLAMA CONFIGURATION (Required only if SOURCE_MODEL=OLLAMA)
+# Point OLLAMA_HOST to your local PC's local IP address on the network
+OLLAMA_HOST=http://your_pc_ip_address_here:11434
+OLLAMA_MODEL=gemma4:26b
+
+# GEMINI CONFIGURATION (Required only if SOURCE_MODEL=GEMINI)
+GEMINI_API_KEY=your_google_gemini_api_key_here
+
+# --- MICROCONTROLLER SETTINGS ---
+SERIAL_PORT=/dev/ttyACM0
+SERIAL_BAUD=2000000
+
+# --- AUDIO PLAYBACK DEVICE ---
+# Bose USB Speaker: "plughw:CARD=SoundLink,DEV=0"
+# Default Headphone AUX Jack or HDMI: "default"
+AUDIO_DEVICE=default

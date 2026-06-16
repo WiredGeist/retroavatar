@@ -1,0 +1,8 @@
+numpy
+opencv-python-headless
+luma.oled
+pyserial
+google-genai
+ollama
+vosk
+python-dotenv
